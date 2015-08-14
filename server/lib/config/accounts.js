@@ -27,6 +27,7 @@ Meteor.startup(function() {
   */
 
   // Add Google configuration entry
+  /*
   ServiceConfiguration.configurations.update(
     { service: "google" },
     { $set: {
@@ -37,7 +38,7 @@ Meteor.startup(function() {
     },
     { upsert: true }
   );
-
+  */
   // Add Linkedin configuration entry
   /*
   ServiceConfiguration.configurations.update(

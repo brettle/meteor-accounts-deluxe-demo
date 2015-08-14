@@ -8,7 +8,11 @@ zimme:iron-router-active
 accounts-password
 less
 useraccounts:bootstrap
+useraccounts:iron-routing
 accounts-google
 service-configuration
 twbs:bootstrap
-
+brettle:accounts-anonymous-auto
+brettle:accounts-anonymous-ui
+brettle:accounts-logout-to-switch
+brettle:accounts-add-service
