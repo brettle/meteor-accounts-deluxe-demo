@@ -13,9 +13,9 @@ accounts-google
 service-configuration
 twbs:bootstrap
 brettle:accounts-anonymous-auto
-brettle:accounts-anonymous-ui
 brettle:accounts-logout-to-switch
 brettle:accounts-add-service
 accounts-meteor-developer
 accounts-ui
 lai:ddp-inspector
+brettle:accounts-anonymous-ui
