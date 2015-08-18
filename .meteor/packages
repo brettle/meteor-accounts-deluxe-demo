@@ -16,3 +16,6 @@ brettle:accounts-anonymous-auto
 brettle:accounts-anonymous-ui
 brettle:accounts-logout-to-switch
 brettle:accounts-add-service
+accounts-meteor-developer
+accounts-ui
+lai:ddp-inspector
