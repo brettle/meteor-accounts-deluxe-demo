@@ -13,15 +13,19 @@ if (Meteor.isClient) {
   });
   Template.nav.helpers({
     userObject: function () {
-      return "<pre>" + EJSON.stringify(Meteor.user(), {
+      return EJSON.stringify(Meteor.user(), {
         indent: true
-      }) + "</pre>";
+      });
     }
   });
   Template.nav.onRendered(function () {
     if (! this.popoversInited) {
       this.$('[data-toggle="popover"]').popover({
-        html: true,
+        template:
+          '<div class="popover" role="tooltip">' +
+            '<div class="arrow"></div><h3 class="popover-title"></h3>' +
+            '<pre class="popover-content"></pre>' +
+          '</div>',
       });
       this.popoversInited = true;
     }
