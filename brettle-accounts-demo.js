@@ -11,15 +11,16 @@ if (Meteor.isClient) {
       Session.set('uiPkg', event.target.value);
     }
   });
-  Template.nav.helpers({
+  Template.userButton.helpers({
     userObject: function () {
       return EJSON.stringify(Meteor.user(), {
         indent: true
       });
     }
   });
-  Template.nav.onRendered(function () {
-    if (! this.popoversInited) {
+  Template.userButton.onRendered(function () {
+    var userButton = this;
+    if (! this.popoverAndTrackerInited) {
       this.$('[data-toggle="popover"]').popover({
         template:
           '<div class="popover" role="tooltip">' +
@@ -27,7 +28,11 @@ if (Meteor.isClient) {
             '<pre class="popover-content"></pre>' +
           '</div>',
       });
-      this.popoversInited = true;
+      Tracker.autorun(function () {
+        Meteor.userId();
+        userButton.$('a').css('opacity', 0).animate({ opacity: 1 }, 1000);
+      });
+      this.popoverAndTrackerInited = true;
     }
   });
 }

@@ -21,11 +21,7 @@
             <li class="{{isActiveRoute regex='private'}}"><a href="{{pathFor 'private'}}">Services</a></li>
             {{/if}}
             <li>
-              <a tabindex="0" class="btn navbar-link" role="button"
-                title="User Object"
-                data-toggle="popover" data-trigger="focus"
-                data-placement="bottom"
-                data-content="{{ userObject }}">ID: {{currentUser._id}}</a>
+              {{> userButton}}
             </li>
             <li>
               <button class="delete-account btn btn-danger navbar-btn" type="button">Delete</button>
