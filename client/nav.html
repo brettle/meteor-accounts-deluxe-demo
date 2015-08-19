@@ -10,19 +10,47 @@
             <span class="icon-bar"></span>
           </button>
           <span class="navbar-brand">
-            AccountsTemplates
+            brettle:accounts-deluxe
           </span>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
           <ul class="nav navbar-nav">
-            <li class="{{isActiveRoute regex='home'}}"><a href="{{pathFor 'home'}}">Home</a></li>
-            <li class="{{isActiveRoute regex='private'}}"><a href="{{pathFor 'private'}}">Manage Account</a></li>
-            <li class="navbar-text">currentUser._id: {{currentUser._id}}</li>
+            <li class="{{isActiveRoute regex='home'}}"><a href="{{pathFor 'home'}}">Demo</a></li>
+            {{#if useUserAccounts}}
+            <li class="{{isActiveRoute regex='private'}}"><a href="{{pathFor 'private'}}">Services</a></li>
+            {{/if}}
+            <li>
+              <a tabindex="0" class="btn navbar-link" role="button"
+                title="User Object"
+                data-toggle="popover" data-trigger="focus"
+                data-placement="bottom"
+                data-content="{{ userObject }}">ID: {{currentUser._id}}</a>
+            </li>
+            <li>
+              <button class="delete-account btn btn-danger navbar-btn" type="button">Delete</button>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            {{> loginButtons}}
-            {{> atNavButton}}
+            {{#if useUserAccounts}}
+            <li>
+              {{> atNavButton}}
+            </li>
+            {{else}}
+            <li class="navbar-text">
+              {{> loginButtons}}
+            </li>
+            {{/if}}
+            <li>
+              <form id="ui-selector" class="navbar-form">
+                <label>UI:
+                  <select name="ui" class="form-control">
+                    <option selected>accounts-ui</option>
+                    <option>useraccounts</option>
+                  </select>
+                </label>
+              </form>
+            </li>
           </ul>
         </div>
       </div>
