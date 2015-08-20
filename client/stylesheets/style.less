@@ -41,12 +41,6 @@ body {
   }
 }
 
-.newUserId {
-  animation: expandIn 1s !important;
-  animation-play-state: running;
-  overflow: hidden;
-}
-
 @keyframes pulseWarning {
   0% {
     background-color: auto;
@@ -63,4 +57,10 @@ body {
   animation-name: pulseWarning;
   animation-duration: 1s;
   animation-play-state: running;
+}
+
+.newUser.newUserId {
+  animation: expandIn 1s;
+  animation-play-state: running;
+  overflow: hidden;
 }
