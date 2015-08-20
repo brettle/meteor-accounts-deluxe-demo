@@ -28,9 +28,17 @@ if (Meteor.isClient) {
             '<pre class="popover-content"></pre>' +
           '</div>',
       });
+
       Tracker.autorun(function () {
         Meteor.userId();
-        userButton.$('a').css('opacity', 0).animate({ opacity: 1 }, 1000);
+        userButton.$('a').addClass('newUserId');
+      });
+      Tracker.autorun(function () {
+        Meteor.user();
+        userButton.$('a').addClass('newUser');
+      });
+      userButton.$('a').on('animationend', function () {
+        $(this).removeClass('newUser newUserId');
       });
       this.popoverAndTrackerInited = true;
     }

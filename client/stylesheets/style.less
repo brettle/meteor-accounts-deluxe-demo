@@ -31,3 +31,36 @@ body {
     padding-left: 15px;
   }
 }
+
+@keyframes expandIn {
+  from {
+    max-width: 0em;
+  }
+  to {
+    max-width: 20em;
+  }
+}
+
+.newUserId {
+  animation: expandIn 1s !important;
+  animation-play-state: running;
+  overflow: hidden;
+}
+
+@keyframes pulseWarning {
+  0% {
+    background-color: auto;
+  }
+  50% {
+    background-color: #f0ad4e;
+  }
+  100% {
+    background-color: auto;
+  }
+}
+
+.newUser {
+  animation-name: pulseWarning;
+  animation-duration: 1s;
+  animation-play-state: running;
+}
