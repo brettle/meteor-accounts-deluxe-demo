@@ -20,11 +20,13 @@
             {{#if useUserAccounts}}
             <li class="{{isActiveRoute regex='private'}}"><a href="{{pathFor 'private'}}">Services</a></li>
             {{/if}}
-            <li>
-              {{> userButton}}
-            </li>
+          </ul>
+          <ul class="nav navbar-nav">
             <li>
               <button class="delete-account btn btn-danger navbar-btn" type="button">Delete</button>
+            </li>
+            <li>
+              {{> userButton}}
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

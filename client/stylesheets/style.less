@@ -32,12 +32,17 @@ body {
   }
 }
 
-@keyframes expandIn {
+ul:not(.navbar-right):not(.navbar-left).navbar-nav.nav {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+@keyframes slideIn {
   from {
-    max-width: 0em;
+    text-indent: 100%;
   }
   to {
-    max-width: 20em;
+    text-indent: 0%;
   }
 }
 
@@ -60,7 +65,8 @@ body {
 }
 
 .newUser.newUserId {
-  animation: expandIn 1s;
+  animation: slideIn 1s;
   animation-play-state: running;
+  white-space: nowrap;
   overflow: hidden;
 }
