@@ -11,6 +11,9 @@ if (Meteor.isClient) {
       Session.set('uiPkg', event.target.value);
     }
   });
+  Template.nav.onRendered(function () {
+    $('#ui-selector').val(Session.get('uiPkg'));
+  });
   Template.userButton.helpers({
     userObject: function () {
       return EJSON.stringify(Meteor.user(), {
