@@ -31,14 +31,14 @@ if (Meteor.isClient) {
 
       Tracker.autorun(function () {
         Meteor.userId();
-        userButton.$('a').addClass('newUserId');
+        userButton.$('a').addClass('new-user-id');
       });
       Tracker.autorun(function () {
         Meteor.user();
-        userButton.$('a').addClass('newUser');
+        userButton.$('a').addClass('new-user');
       });
       userButton.$('a').on('animationend', function () {
-        $(this).removeClass('newUser newUserId');
+        $(this).removeClass('new-user new-user-id');
       });
       this.popoverAndTrackerInited = true;
     }
