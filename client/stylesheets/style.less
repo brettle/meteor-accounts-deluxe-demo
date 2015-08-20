@@ -39,7 +39,7 @@ ul:not(.navbar-right):not(.navbar-left).navbar-nav.nav {
 
 @keyframes slideIn {
   from {
-    margin-left: 100%;
+    margin-left: -200%;
   }
   to {
     margin-left: 0%;
@@ -68,5 +68,9 @@ ul:not(.navbar-right):not(.navbar-left).navbar-nav.nav {
   animation: slideIn 1s;
   animation-play-state: running;
   white-space: nowrap;
+  overflow: hidden;
+}
+
+ul.navbar-nav.nav li {
   overflow: hidden;
 }
