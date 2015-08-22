@@ -14,29 +14,28 @@ It gives all visitors anonymous accounts to which they can add another login
 service, and it works with popular accounts user interface packages like
 [`accounts-ui`](https://atmospherejs.com/meteor/accounts-ui) and
 [`useraccounts:bootstrap`](https://atmospherejs.com/useraccounts/bootstrap). A
-suite of packages provides this functionality, with each package
-providing a separate feature. If you want finer control over which features your
-application uses, then see the [`brettle:accounts-deluxe`
-documentation](https://atmospherejs.com/brettle/accounts-deluxe) for information
-on which packages to use.
+suite of packages provides this functionality, with each package providing a
+separate feature. If you want finer control over which features your application
+uses, then see the [`brettle:accounts-deluxe`
+documentation](https://github.com/brettle/meteor-accounts-deluxe/blob/master/README.md)
+for information on which packages to use.
 
-## How to use the demo
+## How to use this demo
 
-At the top of the page, in the navigation bar there are a some user interface
-elements to help you use the demo and keep track of what is going on. First,
-next to the "ID" label, is your ID associated with your user record. This is
-always the value of `currentUser._id`. If you click on the ID, a popover will
-display the full user record as seen by the server. This is to help you see what
-happens when you add a service, for example. The ID will also animate to notify
-you of changes. If the ID itself changes (i.e. you become a new user), then a
-new ID will slide down to replace the old ID. If the ID remains the same but the
-user record changes (e.g. because you added a login service) the ID will pulse
-yellow instead of a new ID sliding down.
+In the navigation bar there are three things to help you use this demo and keep
+track of what is going on. First, there is a red Delete button. Clicking this
+will delete your account from the demo's server and give you a new account. This
+is useful for repeating steps in the demo which involve adding a login service
+that isn't associated with an existing account.
 
-Next, to the right of the ID is a red Delete button. Clicking this will delete
-your user record from the demo's server and give you a new user record. This is
-useful for repeating steps in the demo which involve adding a login service that
-isn't associated with an existing account.
+To the right of the "Delete" button is the ID associated with your account. This
+is always the value of `currentUser._id`. If you click on the ID, a popover will
+display the details of your account as seen by the server. This is to help you
+see what happens when you add a service, for example. The ID will also animate
+to notify you of changes. If your ID itself changes (i.e. you become a new
+user), then a new ID will slide down to replace the old ID. If your ID remains
+the same but the details of your account change (e.g. because you add a login
+service) the ID will pulse yellow instead of a new ID sliding down.
 
 Lastly, all the way to the right of the navigation bar is a drop-down labeled
 "UI". You can use this to change which accounts user interface package the demo
@@ -44,14 +43,15 @@ is using. You can choose between the basic `accounts-ui` package that is part of
 the official Meteor platform and the Bootstrap flavor of the fancier
 `useraccounts` suite.
 
-Feel free to experiment on your own or follow the guided tour below.
+Now that you understand how to use this demo, feel free to experiment on your
+own or follow the guided tour below.
 
 ## Guided tour
 
-*Note*: This tour assumes that you don't have any accounts when you start. So,
-if you have signed in using any services, be sure to sign in using each of
-those services again and click the Delete button to remove any associated
-accounts. Also, select `accounts-ui` in the UI drop-down.
+*Note*: This tour assumes that you don't have any (non-anonymous) accounts when
+you start. If you have signed in to this demo in the past, be sure to sign back
+in the same way and click the Delete button to remove your account. Also,
+select `accounts-ui` in the UI drop-down.
 
 1. **Visitor automatically gets anonymous account.** Notice that you have a user
 ID and associated account even though you haven't signed in. Click on the ID to
@@ -91,18 +91,18 @@ use this to delete the abandoned account and any data associated with it. The
 [`brettle:accounts-anonymous`](https://atmospherejs.com/brettle/accounts-anonymous)
 package provides this feature.
 
-5. **Adding/removing OAuth login services with the `useraccounts` UI works.**
-Back in the original tab (you can close the other browser/window/tab you used in
-the previous step), use the UI drop-down to switch to the `useraccounts` user
-interface suite. You will see a new 'Services' tab on the navigaton bar. Click
-on the 'Services' tab to see options for adding and removing OAuth login
-services associated with your account. The demo app configures the
-`useraccounts` user interface suite to show these options, but `useraccounts`
-itself does not provide the ability to actually add a service. The
-`brettle:accounts-add-service` package fills that role in the demo. To see this,
-add an OAuth service other than the one you added earlier. Your ID will not
-change but it will pulse yellow to show that the user record has changed. Click
-it to see the added service.
+5. **Signed-in user can add/remove OAuth login services with the `useraccounts`
+user interface.** Back in the original tab (you can close the other
+browser/window/tab you used in the previous step), use the UI drop-down to
+switch to the `useraccounts` user interface suite. You will see a new 'Services'
+tab on the navigaton bar. Click on the 'Services' tab to see options for adding
+and removing OAuth login services associated with your account. The demo app
+configures the `useraccounts` user interface suite to show these options, but
+`useraccounts` itself does not provide the ability to actually add a service.
+The `brettle:accounts-add-service` package fills that role in this demo. To see
+this, add an OAuth service other than the one you added earlier. Your ID will
+not change but it will pulse yellow to show that the user record has changed.
+Click the ID to see the added service.
 
 6. **Non-anonymous user can't add a login service associated with an existing
 account.** Sign out, create an email/password that you haven't used before, and
@@ -111,10 +111,8 @@ account. A message appears telling you that the service is already associated
 with an existing account and that you need to sign out first if you want to
 switch to that account. The
 [`brettle:accounts-logout-to-switch`](https://atmospherejs.com/brettle/accounts-logout-to-switch)
-package provides this feature. Without that package, you would have  switched to
-other account without any warning. Another option for this case is to use
-[`splendido:accounts-meld`](https://atmospherejs.com/splendido/accounts-meld) to
-merge the two accounts.
+package provides this feature. Without that package, you would have switched to
+the other account without any warning.
 
       {{/markdown}}
     </div>

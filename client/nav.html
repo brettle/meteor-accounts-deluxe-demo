@@ -1,5 +1,5 @@
 <template name="nav">
-  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class=container>
       <div class="container-fluid">
         <div class="navbar-header">
@@ -9,9 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <span class="navbar-brand">
-            brettle:accounts-deluxe
-          </span>
+          <span class="navbar-brand">brettle:accounts-deluxe</span>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
@@ -22,33 +20,21 @@
             {{/if}}
           </ul>
           <ul class="nav navbar-nav">
-            <li>
-              <button class="delete-account btn btn-danger navbar-btn" type="button">Delete</button>
-            </li>
-            <li>
-              {{> userButton}}
-            </li>
+            <li><button class="delete-account btn btn-danger navbar-btn" type="button">Delete</button></li>
+            <li>{{> userButton}}</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {{#if useUserAccounts}}
-            <li>
-              {{> atNavButton}}
-            </li>
+            <li>{{> atNavButton}}</li>
             {{else}}
-            <li class="navbar-text">
-              {{> loginButtons}}
-            </li>
+            <li class="navbar-text">{{> loginButtons}}</li>
             {{/if}}
-            <li>
-              <form class="navbar-form">
-                <label>UI:
+            <li><form class="navbar-form"><label>UI:
                   <select id="ui-selector" name="ui" class="form-control">
                     <option>accounts-ui</option>
                     <option>useraccounts</option>
                   </select>
-                </label>
-              </form>
-            </li>
+            </label></form></li>
           </ul>
         </div>
       </div>
