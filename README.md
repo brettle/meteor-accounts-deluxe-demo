@@ -1,6 +1,8 @@
 # Demo of the brettle:accounts-* packages
 
-This is a demonstration app for the `brettle:accounts-deluxe` package and the various smaller `brettle:accounts-*` packages that it includes.
+This is a demonstration app for the
+[`brettle:accounts-deluxe`](https://atmospherejs.com/brettle/accounts-deluxe)
+package and the various other `brettle:accounts-*` packages that it uses.
 
 ## Running the app
 

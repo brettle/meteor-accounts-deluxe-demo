@@ -1,6 +1,124 @@
 <template name="home">
   <div class="container">
     <div>
+      {{#markdown}}
+## Introduction
+
+This is a demonstration of the
+[`brettle:accounts-deluxe`](https://atmospherejs.com/brettle/accounts-deluxe)
+package and the various other `brettle:accounts-*` packages that it uses.
+
+The `brettle:accounts-deluxe` package allows a visitor to start using your
+application without signing up and then later sign up without losing any work.
+It gives all visitors anonymous accounts to which another login service can be
+added and it works with popular accounts UI packages like
+[`accounts-ui`](https://atmospherejs.com/meteor/accounts-ui) and
+[`useraccounts:bootstrap`](https://atmospherejs.com/useraccounts/bootstrap). All
+of this functionality is provided by a suite of packages, each providing a
+separate feature. If you want finer control over which features your application
+uses, then see the [`brettle:accounts-deluxe`
+documentation](https://atmospherejs.com/brettle/accounts-deluxe) for information
+on which packages to use.
+
+## How to use the demo
+
+At the top of the page, in the navbar there are a few things to help you use the
+demo and keep track of what is going on. They are not part of the
+`brettle:accounts-deluxe` package. First, next to the "ID" label, is your ID
+associated with your user record. This is simply the value of `currentUser._id`.
+If you click on the ID, a popover will display the full user record as seen by
+the server. This is to help you see what happens when services are added, for
+example. The ID will also animate to notify you of changes. If the ID itself
+changes (i.e. you become a new user), then a new ID will slide down to replace
+the old ID. If the ID remains the same but user record changes (e.g. because a
+service was added) the ID will not be replaced but it will pulse yellow.
+
+Next, to the right of the ID is a red Delete button. Clicking this will delete your user
+record from the demo's server and give you a new user record. This is
+useful for repeating steps in the demo which involve adding a login service that
+isn't associated with an existing account.
+
+Lastly, all the way to the right of the navbar is a dropdown labeled "UI". You
+can use this to change which accounts UI package the demo is usiing. You can
+choose between the basic `accounts-ui` package that is part of the official
+Meteor platform and the bootstarp flavor of the fancier `useraccounts` suite.
+
+Feel free to experiment on your own or follow the guided tour below.
+
+## Guided tour
+
+*Note*: This tour assumes that you don't have any accounts when you start. So,
+if you have signed in using any services, be sure to sign in using each of
+those services again and click the Delete button so that any associated
+accounts are removed. Also, select 'accounts-ui' in the UI dropdown to start
+with.
+
+1. **Visitor automatically gets anonymous account.** Notice that you have a user
+ID and associated account even though you haven't signed in. Click on the ID to
+see the user object. Note that it only has a "resume" service. This means that
+you are an anonymous user and can only access this account using the token
+stored in your current browser. As expected, if you open the demo in another tab
+or window, you will have the same account. If you open it in private window,
+that window will be issued a new account. If you click the Delete button, your
+account will be deleted and you will automatically be given a new one. All of
+this functionality is provided by the
+[`brettle:accounts-anonymous-auto`](https://atmospherejs.com/brettle/accounts-anonymous-auto)
+package.
+
+2. **Anonymous user can sign in.** Notice that even though you have an
+account, you still have the option to sign in. This feature is provided by the
+[`brettle:accounts-anonymous-ui`](https://atmospherejs.com/brettle/accounts-anonymous-ui)
+package which monkey patches `accounts-ui` and the `useraccounts` suite to treat
+anonymous users as though they are logged out.
+
+3. **A login service can be added to an anonymous account.** Sign in using the Google or
+Meteor developer OAuth service, or create an email/password (which you can make
+up for the purposes of the demo). Notice that your user ID _does not change_ but
+it pulses yellow to indicate that the user record has changed. If you click on
+the ID now, you will see that your new login service has been added to your
+account. This feature is provided by
+[`brettle:accounts-add-service`](https://atmospherejs.com/brettle/accounts-add-service)
+and should work with any login service.
+
+4. **Signing in to an existing non-anonymous account fires a server event.** Now
+pretend you want to login to your account from another computer. In a _private_
+tab/window or on another computer/browser visit the demo page to get a new
+anonymous account, and sign in there using the same login service you used in
+the previous step. The ID of the anonymous account will be replaced with the ID
+from previous step (which is still displayed in that other tab). When you signed
+in to this existing account, the anonymous account that you had been using
+before you signed in became inaccessible. An `onAbandonment` callback can be
+registered which will called on the server when this occurs. You could use this
+to delete the abandoned account and any data associated with it. This feature is
+provided by the
+[`brettle:accounts-anonymous`](https://atmospherejs.com/brettle/accounts-anonymous)
+package.
+
+5. **Adding/removing OAuth login services with the `useraccounts` UI works.**
+Back in the original tab (you can close the other browser/window/tab you used in
+the previous step), use the UI dropdown to switch to the `useraccounts` UI. You
+will see a new 'Services' tab on the navbar. Click on the 'Services' tab to see
+options for adding and removing OAuth login services associated with your
+account. The demo app configures the `useraccounts` UI suite to show these
+options, but `useraccounts` itself does not provide the ability to actually add
+a service. The `brettle:accounts-add-service` package fills that role in the
+demo. To see this, add an OAuth service other than the one you added earlier.
+Your ID will not change but it will pulse yellow to indicate that the user
+record has changed. Click it to see the added service.
+
+6. **Non-anonymous user can't add a login service associated with an existing
+account.** Sign out, create an email/password that you haven't used before, and
+try to add an OAuth service that is already associated with your earlier
+account. You will be told that the service is already associated with an
+existing account and that you need to sign out first if you want to switch to
+that account. This feature is provided by the
+[`brettle:accounts-logout-to-switch`](https://atmospherejs.com/brettle/accounts-logout-to-switch)
+package. Without that package, you would have simply been switched to other
+account. Another option for this case is to use
+[`splendido:accounts-meld`](https://atmospherejs.com/splendido/accounts-meld) to
+merge the two accounts.
+
+      {{/markdown}}
     </div>
   </div>
 </template>
