@@ -1,7 +1,6 @@
 <template name="home">
-  <div class="container">
-    <div class="markdown">
-      {{#markdown}}
+  <div class="container markdown">
+    {{#markdown}}
 ## Introduction
 
 This is a demonstration of the
@@ -28,14 +27,14 @@ will delete your account from the demo's server and give you a new account. This
 is useful for repeating steps in the demo which involve adding a login service
 that isn't associated with an existing account.
 
-To the right of the "Delete" button is the ID associated with your account. This
-is always the value of `currentUser._id`. If you click on the ID, a popover will
-display the details of your account as seen by the server. This is to help you
-see what happens when you add a service, for example. The ID will also animate
-to notify you of changes. If your ID itself changes (i.e. you become a new
-user), then a new ID will slide down to replace the old ID. If your ID remains
-the same but the details of your account change (e.g. because you add a login
-service) the ID will pulse yellow instead of a new ID sliding down.
+To the right of the "Delete" button is the ID associated with your account. If
+you click on the ID, a popover will display the details of your account as seen
+by the server. This is to help you see what happens when you add a service, for
+example. The ID also animates to notify you of changes. If your ID changes (i.e.
+you become a new user), then a new ID will slide down to replace the old ID. If
+your ID remains the same but the details of your account change (e.g. because
+you add a login service) the ID will pulse yellow instead of a new ID sliding
+down.
 
 Lastly, all the way to the right of the navigation bar is a drop-down labeled
 "UI". You can use this to change which accounts user interface package the demo
@@ -66,9 +65,13 @@ package provides the above functionality.
 
 2. **Anonymous user can sign in.** Notice that even though you have an account,
 you still have the option to sign in. The
-[`brettle:accounts-anonymous-ui`](https://atmospherejs.com/brettle/accounts-anonymous-ui)
+[`brettle:accounts-patch-ui`](https://atmospherejs.com/brettle/accounts-patch-ui)
 package provides this feature by monkey patching the `accounts-ui-unstyled`
-package and the `useraccounts` suite to treat anonymous users as signed out.
+package and the `useraccounts` suite to treat users who have not signed up (e.g.
+anonymous users) as signed out. It uses the
+[`brettle:accounts-login-state`](https://atmospherejs.com/brettle/accounts-login-state)
+package which allows applications and packages to help determine whether a user
+has signed up.
 
 3. **Anonymous user can add a login service.** Sign in using the
 Google or Meteor developer OAuth service, or create an email/password (which you
@@ -114,7 +117,6 @@ switch to that account. The
 package provides this feature. Without that package, you would have switched to
 the other account without any warning.
 
-      {{/markdown}}
-    </div>
+    {{/markdown}}
   </div>
 </template>
