@@ -16,8 +16,8 @@ brettle:accounts-add-service@0.3.0
 brettle:accounts-anonymous@0.3.0
 brettle:accounts-anonymous-auto@0.3.3
 brettle:accounts-deluxe@0.1.0
-brettle:accounts-login-state@0.0.1
-brettle:accounts-logout-to-switch@0.3.2
+brettle:accounts-login-state@0.0.2
+brettle:accounts-logout-to-switch@0.4.0
 brettle:accounts-multiple@0.3.0
 brettle:accounts-patch-ui@0.0.1
 brettle:workaround-issue-4331@0.0.3
