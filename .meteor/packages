@@ -12,8 +12,10 @@ useraccounts:iron-routing
 accounts-google
 service-configuration
 twbs:bootstrap
-brettle:accounts-deluxe
 accounts-meteor-developer
 accounts-ui
 lai:ddp-inspector
 markdown
+artwells:accounts-guest
+brettle:accounts-add-service
+brettle:accounts-logout-to-switch
