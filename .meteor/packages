@@ -5,8 +5,6 @@
 
 zimme:iron-router-active
 accounts-password
-less
-useraccounts:bootstrap
 useraccounts:iron-routing
 accounts-google
 service-configuration
@@ -30,3 +28,6 @@ random
 ejson
 spacebars
 check
+useraccounts:semantic-ui
+semantic:ui
+flemay:less-autoprefixer
